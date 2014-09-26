@@ -3,7 +3,12 @@
     var FS = require('fs'),
         GUI = require('nw.gui'),
         SVGO = require('svgo'),
-        svgo = new SVGO(),
+        svgo = new SVGO( {
+                plugins: [
+                    { removeTitle: true }, 
+                    { removeDesc: true }
+                ]
+            }),
         body = doc.body,
         holder = doc.querySelector('.holder'),
         list = doc.querySelector('.list'),
